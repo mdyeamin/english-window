@@ -38,7 +38,7 @@ const showWordOnUi = async (words) => {
 
         <div class="font-bangla w-full md:w-6/12 mx-auto col-span-3 rounded-2xl p-5 text-center">
 
-            <img class="mx-auto" src="../assets/alert-error.png"/>
+            <img class="mx-auto" src="./assets/alert-error.png" alt="">
             <p class="mb-2">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
 
 
