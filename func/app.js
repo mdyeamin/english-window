@@ -32,10 +32,29 @@ const loadLevel = (id) => {
 
 const showWordOnUi = async (words) => {
   const currentData = document.getElementById("currentData");
+
+  if (words.length < 1) {
+    currentData.innerHTML = `
+
+        <div class="font-bangla w-6/12 mx-auto col-span-3 rounded-2xl p-5 text-center">
+
+            <img class="mx-auto" src="../assets/alert-error.png"/>
+            <p class="mb-2">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
+
+
+            
+            <p class="text-3xl text-gray-700 font-medium">
+                নেক্সট Lesson এ যান
+            </p>
+        </div>
+`;
+return
+  }
+
   currentData.innerHTML = "";
   words.forEach((word) => {
-      // console.log(word);
-      const wordDiv = document.createElement("div");
+    // console.log(word);
+    const wordDiv = document.createElement("div");
 
     wordDiv.innerHTML = `
             <div class="bg-white rounded-2xl p-5 h-72 text-center shadow-sm">
@@ -65,6 +84,6 @@ const showWordOnUi = async (words) => {
                     </button>
                 </div>
         </div>`;
-        currentData.append(wordDiv);
+    currentData.append(wordDiv);
   });
 };
