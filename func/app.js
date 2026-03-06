@@ -13,7 +13,9 @@ const showLevels = (levels) => {
 
   levels.forEach((level) => {
     const button = document.createElement("button");
+    
     button.innerHTML = `
+    
         <button onclick="loadLevel(${level.level_no})" class="btn btn-outline btn-primary">
         <i class="fa-brands fa-leanpub"></i>
         Lesson - ${level.level_no}</button>`;
@@ -24,6 +26,7 @@ const showLevels = (levels) => {
 
 const loadLevel = (id) => {
   const url = `https://openapi.programming-hero.com/api/level/${id}`;
+console.log(id);
 
   fetch(url)
     .then((res) => res.json())
@@ -60,14 +63,14 @@ return
             <div class="bg-white rounded-2xl p-5 h-72 text-center shadow-sm">
 
                 <!-- Word -->
-                <h2 class="text-3xl font-bold mb-2">${word.word}</h2>
+                <h2 class="text-3xl font-bold mb-2">${word.word? word.word :"শব্দটি পাওয়া যায়নি"}</h2>
 
                 <!-- Subtitle -->
                 <p class="text-gray-600 mb-4">Meaning /Pronounciation</p>
 
                 <!-- Meaning -->
                 <p class="text-2xl text-gray-700 font-medium mb-10">
-                    "${word.meaning} / ${word.pronunciation}"
+                    "${word.meaning? word.meaning : "অর্থটি পাওয়া যায়নি"} / ${word.pronunciation ? word.pronunciation : "উচ্চরনটি পাওয়া যায়নি"}"
                 </p>
 
                 <!-- Buttons -->
